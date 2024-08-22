@@ -8,16 +8,16 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log("Phantom wallet found!");
-          const response = await solana.connect({onlyIfTrusted: true});
+          const response = await solana.connect({});
           console.log("Connected with public key:", response.publicKey.toString());
           if (response) {
             console.log('Connected to wallet');
           } else {
             console.log('Not connected to wallet');
           }
+        } else {
+          console.log("Solana object not found! Get a Phantom wallet!");
         }
-      } else {
-        console.log("Solana object not found! Get a Phantom wallet!");
       }
     } catch (error) {
       console.error(error);
